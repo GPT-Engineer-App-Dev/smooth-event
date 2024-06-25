@@ -1,7 +1,9 @@
 import { Container, Text, VStack, Heading, Box, Button, IconButton } from "@chakra-ui/react";
 import { FaCalendarAlt, FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"; // Import useNavigate
 
 const Index = () => {
+  const navigate = useNavigate(); // Initialize useNavigate
   return (
     <Container centerContent maxW="container.md" height="100vh" display="flex" flexDirection="column" justifyContent="center" alignItems="center">
       <VStack spacing={6}>
@@ -11,7 +13,7 @@ const Index = () => {
           <Button leftIcon={<FaCalendarAlt />} colorScheme="teal" size="lg" m={2}>
             View Events
           </Button>
-          <IconButton aria-label="Add Event" icon={<FaPlus />} colorScheme="teal" size="lg" m={2} />
+          <IconButton aria-label="Add Event" icon={<FaPlus />} colorScheme="teal" size="lg" m={2} onClick={() => navigate("/create-event")} /> {/* Add onClick to navigate to CreateEvent */}
         </Box>
       </VStack>
     </Container>
